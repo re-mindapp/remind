@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="ReMind — a reminder app that replaces your clock's alarms. Collections, search, and monthly reports included. Free Android download.">
+  <title>ReMind - Reminders, Collections &amp; Monthly Reports for Android</title>
+  <style>
+
+    :root {
+      --bg: #f4f4f6;            /* ListBackground */
+      --card: #e3e3e7;          /* CardSurface */
+      --bar-bg: #1c1c1e;        /* BarBackground */
+      --bar-fg: #ffffff;        /* BarContent */
+      --text: #1b1b1d;          /* TextPrimary */
+      --text-2: #48484a;        /* TextSecondary */
+      --primary: #6a3de8;       /* ProgressPurple */
+      --on-primary: #ffffff;
+      --radius-card: 14px;      /* RemindShapes.medium */
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: Roboto, system-ui, "Segoe UI", sans-serif;
+      line-height: 1.6;
+      -webkit-text-size-adjust: 100%;
+    }
+    header {
+      background: var(--bar-bg);
+      color: var(--bar-fg);
+      text-align: center;
+      padding: 2.5rem 1.25rem 2rem;
+    }
+    h1 { font-size: 2.25rem; margin: 0 0 0.25rem; letter-spacing: -0.02em; }
+    h1 .re { color: #b79aff; }
+    .pitch {
+      font-size: 1.125rem;
+      color: #d1d1d6;
+      margin: 0 auto;
+      max-width: 32rem;
+    }
+    main, footer {
+      max-width: 40rem;
+      margin: 0 auto;
+      padding: 0 1.25rem;
+    }
+    h2 { font-size: 1.35rem; margin: 2.5rem 0 0.75rem; }
+    .card {
+      background: var(--card);
+      border-radius: var(--radius-card);
+      padding: 1.5rem;
+      text-align: center;
+    }
+    .download-card { margin-top: -1.5rem; }
+    .download-btn {
+      display: inline-block;
+      background: var(--primary);
+      color: var(--on-primary);
+      font-size: 1.2rem;
+      font-weight: 600;
+      text-decoration: none;
+      padding: 0.9rem 2.25rem;
+      border-radius: 999px;
+    }
+    .download-btn:hover, .download-btn:focus-visible { filter: brightness(1.12); }
+    .download-meta { margin: 0.75rem 0 0; color: var(--text-2); font-size: 0.95rem; }
+
+    ol.install { padding-left: 1.4rem; }
+    ol.install li { margin-bottom: 0.9rem; }
+    ol.install figure { margin: 0.5rem 0 0; }
+    ol.install img {
+      max-width: 100%;
+      height: auto;
+      border-radius: var(--radius-card);
+    }
+
+    ul.docs { list-style: none; padding: 0; }
+    ul.docs li { margin-bottom: 0.5rem; }
+    a { color: var(--primary); }
+    header a { color: #b79aff; }
+
+    footer {
+      margin-top: 3rem;
+      padding-top: 1.25rem;
+      padding-bottom: 2.5rem;
+      border-top: 1px solid var(--card);
+      color: var(--text-2);
+      font-size: 0.95rem;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1><span class="re">Re</span>Mind</h1>
+    <p class="pitch">A reminder app that replaces your clock's alarms<br />
+      Manage reminders in bulk.</p>
+  </header>
+
+  <main>
+    <section class="card download-card" aria-labelledby="download-heading">
+      <h2 id="download-heading" style="margin-top:0">Download for Android</h2>
+      <a class="download-btn" href="ReMind-v1.0.apk" download>Download ReMind</a>
+      <p class="download-meta">Version 1.0 &middot; 1.93&nbsp;MB &middot; Android APK</p>
+    </section>
+
+    <section aria-labelledby="install-heading">
+      <h2 id="install-heading">How to install</h2>
+      <p>ReMind is distributed here, not on the Play Store, so Android asks you to
+         approve the install the first time. It takes about a minute:</p>
+      <ol class="install">
+        <li>Tap <strong>Download ReMind</strong> above. If your browser warns that the
+            file "might be harmful", choose <strong>Download anyway</strong>. This is
+            Android's standard notice for any app installed outside the Play Store.
+          <!-- <figure><img src="assets/install-1-download.png" alt="Browser download warning with the Download anyway button highlighted"><figcaption>Step 1</figcaption></figure> -->
+        </li>
+        <li>When the download finishes, tap the file in the notification shade, or open
+            it from your <strong>Files</strong> app (usually in the Downloads folder).
+          <!-- <figure><img src="assets/install-2-open.png" alt="Download complete notification for ReMind-v1.0.apk"><figcaption>Step 2</figcaption></figure> -->
+        </li>
+        <li>Android shows: <em>"For your security, your phone is not allowed to install
+            unknown apps from this source."</em> Tap <strong>Settings</strong>.
+          <!-- <figure><img src="assets/install-3-blocked.png" alt="System dialog blocking install from an unknown source, with the Settings button highlighted"><figcaption>Step 3</figcaption></figure> -->
+        </li>
+        <li>Turn on <strong>Allow from this source</strong> for your browser, then go
+            back. You can turn this off again after installing.
+          <!-- <figure><img src="assets/install-4-allow.png" alt="Install unknown apps setting with Allow from this source switched on"><figcaption>Step 4</figcaption></figure> -->
+        </li>
+        <li>Tap <strong>Install</strong> on the ReMind prompt, then <strong>Open</strong>.
+          <!-- <figure><img src="assets/install-5-install.png" alt="Install confirmation dialog for ReMind"><figcaption>Step 5</figcaption></figure> -->
+        </li>
+        <li>Allow notifications when ReMind asks on first launch. Reminders can't
+            alert you without it.
+          <!-- <figure><img src="assets/install-6-notifications.png" alt="Android notification permission prompt with Allow highlighted"><figcaption>Step 6</figcaption></figure> -->
+        </li>
+      </ol>
+    </section>
+
+    <section aria-labelledby="docs-heading">
+      <h2 id="docs-heading">Learn more</h2>
+      <ul class="docs">
+        <li><a href="docs/user-guide.html">User guide</a>: creating and repeating
+            reminders, collections, search, and monthly reports.</li>
+        <li><a href="docs/faq.html">FAQ</a>: alarms not firing, data &amp; privacy,
+            and other common questions.</li>
+      </ul>
+    </section>
+  </main>
+
+  <footer>
+    <p>Found a bug or have a feature request?
+      <a href="https://github.com/re-mindapp/remind/issues">Open an issue on GitHub</a>.</p>
+    <p>ReMind stores everything on your device. No account, no cloud, nothing leaves
+       your phone.</p>
+  </footer>
+</body>
+</html>
