@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="ReMind user guide — installing the app, creating and managing reminders and collections, search, sorting, and monthly reports.">
+  <title>User Guide - ReMind</title>
+  <style>
+
+    :root {
+      --bg: #f4f4f6;            /* ListBackground */
+      --card: #e3e3e7;          /* CardSurface */
+      --bar-bg: #1c1c1e;        /* BarBackground */
+      --bar-fg: #ffffff;        /* BarContent */
+      --text: #1b1b1d;          /* TextPrimary */
+      --text-2: #48484a;        /* TextSecondary */
+      --primary: #6a3de8;       /* ProgressPurple */
+      --on-primary: #ffffff;
+      --radius-card: 14px;      /* RemindShapes.medium */
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: Roboto, system-ui, "Segoe UI", sans-serif;
+      line-height: 1.6;
+      -webkit-text-size-adjust: 100%;
+    }
+    header {
+      background: var(--bar-bg);
+      color: var(--bar-fg);
+      text-align: center;
+      padding: 2rem 1.25rem 1.75rem;
+    }
+    .brand { margin: 0 0 0.25rem; font-size: 1.1rem; font-weight: 700; }
+    .brand a { color: var(--bar-fg); text-decoration: none; }
+    .brand .re { color: #b79aff; }
+    header h1 {
+      font-size: 2.25rem;
+      margin: 0;
+      letter-spacing: -0.02em;
+    }
+    main, footer {
+      max-width: 44rem;
+      margin: 0 auto;
+      padding: 0 1.25rem;
+    }
+    h2 { font-size: 1.5rem; margin: 2.75rem 0 0.75rem; }
+    h3 { font-size: 1.2rem; margin: 2.25rem 0 0.5rem; }
+    h4 { font-size: 1rem; margin: 1.5rem 0 0.5rem; }
+    h2, h3, h4 { scroll-margin-top: 1rem; }
+    a { color: var(--primary); }
+    ol, ul { padding-left: 1.4rem; }
+    li { margin-bottom: 0.5rem; }
+
+    .card {
+      background: var(--card);
+      border-radius: var(--radius-card);
+      padding: 1.25rem 1.5rem;
+    }
+    nav.toc { margin-top: 1.5rem; }
+    nav.toc h2 { margin: 0 0 0.5rem; font-size: 1.2rem; }
+    nav.toc ul { margin: 0; list-style: none; padding-left: 0; }
+    nav.toc ul ul { padding-left: 1.25rem; }
+    nav.toc li { margin-bottom: 0.3rem; }
+    nav.toc a { text-decoration: none; }
+    nav.toc a:hover, nav.toc a:focus-visible { text-decoration: underline; }
+
+    figure.shot {
+      margin: 0;
+      text-align: center;
+    }
+    figure.shot img {
+      width: 100%;
+      height: auto;
+      border-radius: var(--radius-card);
+      border: 1px solid #d0d0d5;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    }
+    figure.shot figcaption {
+      margin-top: 0.4rem;
+      font-size: 0.875rem;
+      line-height: 1.4;
+      color: var(--text-2);
+    }
+
+    /* Text and screenshot side by side; stacks on small screens */
+    .media-row {
+      display: flex;
+      gap: 1.75rem;
+      align-items: flex-start;
+      margin: 1rem 0 1.75rem;
+    }
+    .media-row .media-text { flex: 1; min-width: 0; }
+    .media-text > :first-child { margin-top: 0; }
+    .media-text > :last-child { margin-bottom: 0; }
+    .media-row figure.shot, .media-row .media-figs { flex: 0 0 240px; }
+    .media-row.wide-img figure.shot { flex-basis: 320px; }
+    .media-row.img-left figure.shot, .media-row.img-left .media-figs { order: -1; }
+    .media-figs { display: flex; flex-direction: column; gap: 1.5rem; }
+    @media (max-width: 620px) {
+      .media-row { display: block; }
+      .media-row figure.shot { margin: 1.25rem auto; max-width: 300px; }
+      .media-row.wide-img figure.shot { max-width: 320px; }
+      .media-figs { display: block; }
+    }
+
+    footer {
+      margin-top: 3rem;
+      padding-top: 1.25rem;
+      padding-bottom: 2.5rem;
+      border-top: 1px solid var(--card);
+      color: var(--text-2);
+      font-size: 0.95rem;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <p class="brand"><a href="../index.html"><span class="re">Re</span>Mind</a></p>
+    <h1 id="user-guide">User Guide</h1>
+  </header>
+
+  <main>
+    <nav class="card toc" aria-labelledby="toc-heading">
+      <h2 id="toc-heading">Contents</h2>
+      <ul>
+        <li><a href="#introduction">Introduction</a></li>
+        <li><a href="#installation-and-using-the-application">Installation and Using the Application</a>
+          <ul>
+            <li><a href="#installing-remind">Installing ReMind</a></li>
+            <li><a href="#granting-notification-permissions">Granting Notification Permissions</a></li>
+            <li><a href="#reminders">Reminders</a>
+              <ul>
+                <li><a href="#create-a-new-reminder">Create a New Reminder</a></li>
+                <li><a href="#editing-a-reminder">Editing a Reminder</a></li>
+                <li><a href="#deleting-a-reminder">Deleting a Reminder</a></li>
+                <li><a href="#disabling-and-enabling-a-reminder">Disabling and Enabling a Reminder</a></li>
+                <li><a href="#sorting-reminders">Sorting Reminders</a></li>
+                <li><a href="#pinning-a-reminder">Pinning a Reminder</a></li>
+                <li><a href="#skipping-a-reminder">Skipping a Reminder</a></li>
+                <li><a href="#searching-for-reminders">Searching for Reminders</a></li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+        <li><a href="#collections">Collections</a>
+          <ul>
+            <li><a href="#creating-a-collection">Creating a Collection</a></li>
+            <li><a href="#editing-a-collection">Editing a Collection</a></li>
+            <li><a href="#adding-a-reminder-to-a-collection">Adding a Reminder to a Collection</a></li>
+            <li><a href="#managing-reminders-in-a-collection">Managing reminders in a Collection</a></li>
+            <li><a href="#deleting-a-collection">Deleting a Collection</a></li>
+            <li><a href="#viewing-the-reminders-within-a-collection">Viewing the Reminders within a Collection</a></li>
+            <li><a href="#enabling-disabling-collections">Enabling/Disabling Collections</a></li>
+            <li><a href="#searching-collections">Searching Collections</a></li>
+            <li><a href="#sorting-collections">Sorting Collections</a></li>
+          </ul>
+        </li>
+        <li><a href="#reports">Reports</a>
+          <ul>
+            <li><a href="#exporting-reports">Exporting Reports</a></li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
+
+    <h2 id="introduction">Introduction</h2>
+    <p>This guide explains the process of installing and using ReMind. After reading this, you will understand how to install and run the app, how to grant notification permissions, how to create and manage Reminder and Collections, how to add and remove Reminders from Collections, how to delete Reminder and Collections, how to search Reminders and Applications, and how to generate and export reports. </p>
+    <h2 id="installation-and-using-the-application">Installation and Using the Application</h2>
+    <h3 id="installing-remind">Installing ReMind</h3>
+    <p>ReMind is distributed as an APK file from the project's website, as opposed to the App Store. To install the app:</p>
+    <div class="media-row">
+      <div class="media-text">
+        <ol>
+        <li>On your Android 8 or newer phone, open your browser app and navigate to the project website: <a href="https://re-mindapp.github.io/remind">https://re-mindapp.github.io/remind</a>.</li>
+        <li>Tap the “Download ReMind” button. If prompted to download by the browser, accept. If prompted to grant your browser storage permission, accept.</li>
+        <li>Open the downloaded ReMind-v1.0.apk file from the Browser's downloads or your Files app.</li>
+        <li>If your device shows an “Install Unknown Apps” prompt, tap “Settings” and select “Allow from this Source.” This will often happen when installing an app from outside of the Play Store.</li>
+        <li>Tap Install, then open ReMind. You will be brought to the Reminder List screen.</li>
+        </ol>
+      </div>
+      <div class="media-figs">
+        <figure class="shot"><img src="../assets/install-1.PNG" alt="The ReMind project website open in a mobile browser, showing the Download ReMind button"><figcaption>Step 2: the project website with the Download ReMind button</figcaption></figure>
+        <figure class="shot"><img src="../assets/install-2.PNG" alt="System dialog saying the phone is not allowed to install unknown apps from this source, with Cancel and Settings buttons"><figcaption>Step 4: the “Install Unknown Apps” prompt</figcaption></figure>
+      </div>
+    </div>
+    <h3 id="granting-notification-permissions">Granting Notification Permissions</h3>
+    <p>When you first install the app, ReMind will need Notification permissions. A banner at the top of the screen will indicate that permissions are required. It has two buttons: Allow and Settings. Settings will bring you to the notification settings for the app, allowing you to manually specify which notification settings you wish to grant ReMind. This screen is managed by your Android OS.</p>
+    <p>The Allow button causes a pop-up to appear, requesting permissions, with the options “Deny” and “Allow all the time.” Deny will dismiss the pop-up with no changes to the permission state. Allow all the time will set a default set of Notification settings, allowing ReMind to display reminder notifications.</p>
+    <h3 id="reminders">Reminders</h3>
+    <div class="media-row">
+      <div class="media-text">
+        <p>On first launch, you'll be brought to the screen seen on the right. There are three buttons on the right of the screen, each with an icon: A magnifying glass, a sort icon, and a larger button with a + icon. A labelled bottom bar exists to ease navigation. The main body of this screen displays a list of Reminders, or a notice that no Reminders are present, and a hint on how to create a Reminder.</p>
+      </div>
+      <figure class="shot"><img src="../assets/reminders_empty.PNG" alt="The Reminders list on first launch, showing a bell icon, the text No reminders yet, a hint to tap + to create a reminder, three floating action buttons, and a bottom navigation bar"><figcaption>The Reminders list on first launch</figcaption></figure>
+    </div>
+    <h3 id="create-a-new-reminder">Create a New Reminder</h3>
+    <div class="media-row img-left">
+      <div class="media-text">
+        <ol>
+        <li>From the Reminders list page, press the “+” button to be navigated to the New Reminder screen.</li>
+        <li>Input detail about your reminder:
+        a.    Input a title in the Title field (required).
+        b.    Select a Repetition rule (required, defaults to None).
+        i.    If your repeating rule is set to None or Monthly, you may select a date via the date picker.
+        ii.    If your repeating rule is set to Weekly, you may select a day of the week, or the weekdays or weekends buttons, above the notes field.
+        c.    Select a time for the Reminder.
+        d.    Write a note for additional detail about your alarm (optional).
+        e.    If you already have a Collection defined, underneath the notes field you may select a Collection from a list by tapping on its name.</li>
+        <li>Tap  the Save button in the top right corner to save the reminder and return to the Reminders list.</li>
+        </ol>
+      </div>
+      <figure class="shot"><img src="../assets/reminders_edit.PNG" alt="The New reminder screen with a Title field, date and time pickers, Repeat options None, Daily, Weekly, and Monthly, a Notes field, a Collections list, and a Save button in the top right"><figcaption>The New Reminder screen</figcaption></figure>
+    </div>
+    <h3 id="editing-a-reminder">Editing a Reminder</h3>
+    <div class="media-row wide-img">
+      <div class="media-text">
+        <ol>
+        <li>From the reminders list, tap on the pencil icon on the right of a Reminder in the list.</li>
+        <li>You may edit the Title, Date, Time, Repetition rule, Notes, and Collections for the Reminder you selected.</li>
+        <li>Tap  the Save button in the top right corner to save the reminder and return to the Reminders list.</li>
+        </ol>
+      </div>
+      <figure class="shot"><img src="../assets/reminders_list_entry.PNG" alt="A reminder titled Dentist Appt in the Reminders list, marked Ongoing, with a pencil edit icon on its right"><figcaption>A Reminder in the list, with its pencil icon on the right</figcaption></figure>
+    </div>
+    <h3 id="deleting-a-reminder">Deleting a Reminder</h3>
+    <div class="media-row wide-img img-left">
+      <div class="media-text">
+        <ol>
+        <li>From the reminders list, tap on the Reminder to expand its detail.</li>
+        <li>Tap the Delete button to delete the Reminder.</li>
+        </ol>
+      </div>
+      <figure class="shot"><img src="../assets/reminders_expanded.PNG" alt="An expanded reminder card showing its title, status, next ring time, and Disable, Skip next, Pin, and Delete buttons"><figcaption>An expanded Reminder, with its Disable, Skip next, Pin, and Delete buttons</figcaption></figure>
+    </div>
+    <h3 id="disabling-and-enabling-a-reminder">Disabling and Enabling a Reminder</h3>
+    <div class="media-row">
+      <div class="media-text">
+        <p>Reminders are enabled upon creation. There are two ways to disable a Reminder: You may use a gesture-based approach, or tap a button on the expanded Reminder. When a Reminder is disabled, it will have a Red gradient, and red text saying “Disabled” under its title, and the Disable button will change to become an “Enable” button, and the gesture to disable the Reminder becomes a gesture to re-enable it. A snackbar will also appear with an Undo button that can re-enable the Reminder.</p>
+        <h4 id="button">Button</h4>
+        <ol>
+        <li>From the reminders list, tap on the Reminder to expand its detail.</li>
+        <li>Tap the Delete button to delete the Reminder.</li>
+        </ol>
+        <h4 id="gesture">Gesture</h4>
+        <ol>
+        <li>From the reminders list, swipe left on a Reminder.</li>
+        </ol>
+      </div>
+      <figure class="shot"><img src="../assets/reminders_enable-disable.PNG" alt="A disabled reminder named Groceries with a red gradient, red Disabled text under its title, an Enable button, and a snackbar reading Disabled Groceries with an Undo button"><figcaption>A disabled Reminder, with the Undo snackbar</figcaption></figure>
+    </div>
+    <h3 id="sorting-reminders">Sorting Reminders</h3>
+    <p>You may sort Reminders, to display the list in a specific order. If there are reminders in your list, at the top right of the screen, you can see what the current sorting style is set to. There are three sorting styles for Reminders: Alphabetical, Soonest Reminder, and By Status. To change your sorting style:</p>
+    <ol>
+    <li>Tap on the second floating action button in the bottom right of the screen, with the three lines of different widths.</li>
+    <li>Select a different sorting style than the one currently selected.</li>
+    </ol>
+    <h3 id="pinning-a-reminder">Pinning a Reminder</h3>
+    <p>You may pin a Reminder to the top, regardless of your chosen Sorting rule. </p>
+    <ol>
+    <li>From the reminders list, tap on the Reminder to expand its detail.</li>
+    <li>Tap the Pin button to pin the Reminder.</li>
+    </ol>
+    <h3 id="skipping-a-reminder">Skipping a Reminder</h3>
+    <p>If you have a recurring Reminder, you may choose to skip the next occurrence of it. </p>
+    <ol>
+    <li>From the reminders list, tap on the Reminder to expand its detail.</li>
+    <li>Tap the Skip Next button to pin the Reminder.</li>
+    </ol>
+    <p>You may also use a gesture for this:</p>
+    <ol>
+    <li>From the reminders list, swipe Right on a Reminder.</li>
+    </ol>
+    <h3 id="searching-for-reminders">Searching for Reminders</h3>
+    <div class="media-row wide-img img-left">
+      <div class="media-text">
+        <p>If you have several reminders, you may wish to search for a specific one. There are two ways to do this: A Gesture and a Floating Action Button.</p>
+        <h4 id="gesture-search">Gesture</h4>
+        <ol>
+        <li>On the Reminder list, pull down on the screen. The search bar will appear to drop in from the top of the screen.</li>
+        </ol>
+        <h4 id="floating-action-button">Floating Action Button</h4>
+        <ol>
+        <li>On the Reminder list, tap the top-most Floating Action button, with a magnifying lens icon. The search bar will appear to drop in from the top of the screen.</li>
+        </ol>
+      </div>
+      <figure class="shot"><img src="../assets/reminders_search.PNG" alt="The search bar open above the Reminders list, with a hint reading Pull up or tap X to close"><figcaption>The search bar above the Reminders list</figcaption></figure>
+    </div>
+    <h4 id="performing-a-search">Performing a Search</h4>
+    <ol>
+    <li>Input text into the search bar matching detail in a Reminder's title or its notes section.
+    a.    Reminders that don't match the search input will disappear from the list, leaving only Reminders that match.
+    b.    If no matches are found, no Reminders will display, and the page will have a notice indicating there are no matches for the search term.</li>
+    </ol>
+    <h4 id="closing-the-search-bar">Closing the Search Bar</h4>
+    <p>You may close the search bar in one of two ways:</p>
+    <ol>
+    <li>Tap the X button on the right end of the search input field.</li>
+    <li>Swipe up from the screen.</li>
+    </ol>
+    <p>Whichever way you close the search bar, it will slide upward until it is off-screen.</p>
+    <h2 id="collections">Collections</h2>
+    <div class="media-row">
+      <div class="media-text">
+        <p>Collections are groups that Reminders can be a part of. They allow an easy way to look through related Reminders, and have a Bulk disable/enable feature. Creating, Editing, Deleting, Searching, and Sorting all work  pretty much the same as they do with Reminders. The UI for this screen is nearly identical, however, Collections in the Collection List will have a number next to their Edit button, indicating how many Reminders are included in the Collection.</p>
+        <h3 id="creating-a-collection">Creating a Collection</h3>
+        <ol>
+        <li>From the Collections list page, press the “+” button to be navigated to the New Collection screen.</li>
+        <li>Input a name for your reminder</li>
+        <li>Optionally, if you have any reminders already, you may click the “+ Add reminder” button under the name field to add reminders to the collection (this will be covered under “Adding a Reminder to a Collection”).</li>
+        <li>Click the Save button to save the Collection and return to the Collection List</li>
+        </ol>
+      </div>
+      <figure class="shot"><img src="../assets/collections_expanded-collection.PNG" alt="An expanded collection named Life in the Collections list, showing a count of 2 next to its edit icon, its member reminders, a View reminders link, and Disable, Pin, and Delete buttons"><figcaption>An expanded Collection, with its Reminder count next to the Edit button</figcaption></figure>
+    </div>
+    <h3 id="editing-a-collection">Editing a Collection</h3>
+    <p>As with Reminders, click on the pencil icon on the right side of a Collection in the list. You may edit the title field, as well as add or remove Reminders. Tap the Save button to save the Collection and return to the Collection List</p>
+    <h3 id="adding-a-reminder-to-a-collection">Adding a Reminder to a Collection</h3>
+    <p>While in the edit screen, you may use a “+ Add reminder” button to add a reminder directly to the Collection.</p>
+    <h3 id="managing-reminders-in-a-collection">Managing reminders in a Collection</h3>
+    <div class="media-row img-left">
+      <div class="media-text">
+        <p>While in the edit or create screen, under the Name input is a “Reminders” header and a “+ Add reminder” button. If you click the Add button, a drawer will pop up from the bottom, with a list of Reminder names, preceded by a + icon. If there are no reminders, or if all possible reminders are already associated with the Collection, the drawer will instead have a notice “Every reminder is already in this collection. You may tap outside of the drawer menu to dismiss it.</p>
+        <p>If any Reminders are attached to a Collection, they will appear in a list under both the button and the header., with a toggle button, an edit button, and an X button. The Toggle button represents enabled/disabled for the Reminder. If you disable it, the reminder will be disabled. If you tap the edit button, you will be taken to the “Edit reminder” page for that reminder. If you tap the X button, the reminder will no longer be associated with the Collection.</p>
+        <p>Managing reminders through the Collection Edit screen does not require saving the collection to take effect.</p>
+      </div>
+      <figure class="shot"><img src="../assets/collections_managing-reminders.PNG" alt="The New collection screen with a Name field, an Add reminder button, an attached reminder row with a toggle, edit, and X button, and a drawer at the bottom listing reminders to add"><figcaption>The Collection edit screen, with the Add reminder drawer open</figcaption></figure>
+    </div>
+    <h3 id="deleting-a-collection">Deleting a Collection</h3>
+    <ol>
+    <li>From the Collection list, tap on a Collection to expand it.</li>
+    <li>Tap the Delete button</li>
+    <li>On the Delete Collection? Modal that appears, you may take one of three options:
+    a.    Tap “Delete reminders too” to delete all reminders that are a part of that Collection when deleting the Collection.
+    b.    Tab “Cancel” to abort the delete process.
+    c.    Tap “Keep Reminders” to automatically unlink the reminders from the Collection, when deleting the Collection.</li>
+    </ol>
+    <h3 id="viewing-the-reminders-within-a-collection">Viewing the Reminders within a Collection</h3>
+    <div class="media-row">
+      <div class="media-text">
+        <ol>
+        <li>From the Collection List, tap on a Collection to expand it.</li>
+        <li>Tap on the “View Reminders” link.</li>
+        <li>You will be brought to a Reminders list with no bottom bar, and a top bar with a back button and the title of the collection. Only reminders associated with the Collection will display. All actions you can perform within the regular Reminder list, as detailed above, work in this UI, but results are limited only to the reminders associated with the Collection. </li>
+        </ol>
+        <h3 id="enabling-disabling-collections">Enabling/Disabling Collections</h3>
+        <p>Enabling/Disabling a Collection works identically to how it does for Reminders, with an added piece of functionality. When you disable a Collection, all reminders associated with that Collection are disabled as well.</p>
+        <h3 id="searching-collections">Searching Collections</h3>
+        <p>Searching Collections works identically to how it does for Reminders, except that it only matches for the Name field of a Collection, as there is no notes field. </p>
+      </div>
+      <figure class="shot"><img src="../assets/collections_view-related-reminders.PNG" alt="A Reminders list filtered to the Life collection, with a back button and the collection title in the top bar and no bottom navigation bar"><figcaption>Viewing the Reminders within a Collection</figcaption></figure>
+    </div>
+    <h3 id="sorting-collections">Sorting Collections</h3>
+    <p>Sorting Collections works identically to how it does for Reminders, except that the sorting options are Alphabetical, # of Reminders, and by Status. The Collections List does not have a caption indicating which sort setting is being used.</p>
+    <h2 id="reports">Reports</h2>
+    <div class="media-row wide-img img-left">
+      <div class="media-text">
+        <h4 id="entering-the-reporting-ui">Entering the Reporting UI</h4>
+        <ol>
+        <li>To access the reporting feature, from the application, navigate to the Reminders or Collections lists, and tap the Menu button in the bottom left.</li>
+        <li>In the drawer  that opens from the bottom, tap “Reports”.</li>
+        <li>You can now view a report detailing data for the current month's Reminders and Collections, including how many events fired for a Reminder, how many times was the reminder snoozed, how many times were they completed or turned off, their current state, which collections they're a part of, and when their last event was; For Collections, how many member Reminders there are, how many are enabled, and how many events fired for reminders within the collection.</li>
+        <li>You may also tap the chevron icons to the left and right of the current month to navigate to reports for other months. You may not navigate further forward than the current month, and months prior to the installation of the app will have no data.</li>
+        </ol>
+      </div>
+      <figure class="shot"><img src="../assets/report-1.PNG" alt="The Monthly report screen for July 2026, with chevrons beside the month name, a table of reminders with their status and collections, a collections table, and a share icon in the top right"><figcaption>The Monthly report screen</figcaption></figure>
+    </div>
+    <h3 id="exporting-reports">Exporting Reports</h3>
+    <ol>
+    <li>While in the Reports UI, on a Report from a month with reminder activity, tap the share icon in the top right of the screen.</li>
+    <li>Your Android OS' share menu will appear, allowing you to share it to an app of your choice, such as Google Drive.</li>
+    </ol>
+  </main>
+
+  <footer>
+    <p><a href="../index.html">&larr; Back to the ReMind home page</a></p>
+    <p>Found a bug or have a feature request?
+      <a href="https://github.com/re-mindapp/remind/issues">Open an issue on GitHub</a>.</p>
+    <p>ReMind stores everything on your device. No account, no cloud, nothing leaves
+       your phone.</p>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="ReMind FAQ — alarms not firing, missing notifications, data and privacy, reboots, and monthly reminder edge cases.">
+  <title>FAQ - ReMind</title>
+  <style>
+
+    :root {
+      --bg: #f4f4f6;            /* ListBackground */
+      --card: #e3e3e7;          /* CardSurface */
+      --bar-bg: #1c1c1e;        /* BarBackground */
+      --bar-fg: #ffffff;        /* BarContent */
+      --text: #1b1b1d;          /* TextPrimary */
+      --text-2: #48484a;        /* TextSecondary */
+      --primary: #6a3de8;       /* ProgressPurple */
+      --on-primary: #ffffff;
+      --radius-card: 14px;      /* RemindShapes.medium */
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: Roboto, system-ui, "Segoe UI", sans-serif;
+      line-height: 1.6;
+      -webkit-text-size-adjust: 100%;
+    }
+    header {
+      background: var(--bar-bg);
+      color: var(--bar-fg);
+      text-align: center;
+      padding: 2rem 1.25rem 1.75rem;
+    }
+    .brand { margin: 0 0 0.25rem; font-size: 1.1rem; font-weight: 700; }
+    .brand a { color: var(--bar-fg); text-decoration: none; }
+    .brand .re { color: #b79aff; }
+    header h1 {
+      font-size: 2.25rem;
+      margin: 0;
+      letter-spacing: -0.02em;
+    }
+    main, footer {
+      max-width: 44rem;
+      margin: 0 auto;
+      padding: 0 1.25rem;
+    }
+    a { color: var(--primary); }
+
+    .qa {
+      background: var(--card);
+      border-radius: var(--radius-card);
+      padding: 1.25rem 1.5rem;
+      margin-top: 1.25rem;
+    }
+    main > .qa:first-of-type { margin-top: 1.75rem; }
+    .qa h2 {
+      font-size: 1.1rem;
+      margin: 0 0 0.4rem;
+      scroll-margin-top: 1rem;
+    }
+    .qa p { margin: 0; }
+
+    footer {
+      margin-top: 3rem;
+      padding-top: 1.25rem;
+      padding-bottom: 2.5rem;
+      border-top: 1px solid var(--card);
+      color: var(--text-2);
+      font-size: 0.95rem;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <p class="brand"><a href="../index.html"><span class="re">Re</span>Mind</a></p>
+    <h1 id="faq">FAQ</h1>
+  </header>
+
+  <main>
+    <section class="qa" aria-labelledby="alarm-didnt-fire">
+      <h2 id="alarm-didnt-fire">"My alarm didn't fire."</h2>
+      <p>Some phones aggressively stop background apps (Xiaomi/Huawei/OnePlus battery optimization). You may need to whitelist ReMind manually via system settings. </p>
+    </section>
+    <section class="qa" aria-labelledby="dont-see-notifications">
+      <h2 id="dont-see-notifications">"I don't see notifications."</h2>
+      <p>Re-enable the notification permission via App info → Notifications.</p>
+    </section>
+    <section class="qa" aria-labelledby="apostrophe-before-titles">
+      <h2 id="apostrophe-before-titles">"Why does my exported spreadsheet show an apostrophe before some titles?"</h2>
+      <p>Titles that look like formulas are protected so spreadsheet apps don't execute them.</p>
+    </section>
+    <section class="qa" aria-labelledby="where-is-my-data-stored">
+      <h2 id="where-is-my-data-stored">"Where is my data stored? Is there an account?"</h2>
+      <p>ReMind is on-device only. No serverside analytics, no logins, just you and your phone.</p>
+    </section>
+    <section class="qa" aria-labelledby="reboot">
+      <h2 id="reboot">"What happens when I reboot my phone?"</h2>
+      <p>Alarms are restored automatically; a pending snooze re-alerts shortly after boot.</p>
+    </section>
+    <section class="qa" aria-labelledby="monthly-31st">
+      <h2 id="monthly-31st">"A monthly reminder is set for the 31st. what happens in February?"</h2>
+      <p>ReMind will automatically clamp it down to the last day of the month, so in this case, February 28th.</p>
+    </section>
+  </main>
+
+  <footer>
+    <p><a href="../index.html">&larr; Back to the ReMind home page</a> &middot;
+      <a href="user-guide.html">User guide</a></p>
+    <p>Found a bug or have a feature request?
+      <a href="https://github.com/re-mindapp/remind/issues">Open an issue on GitHub</a>.</p>
+    <p>ReMind stores everything on your device. No account, no cloud, nothing leaves
+       your phone.</p>
+  </footer>
+</body>
+</html>
